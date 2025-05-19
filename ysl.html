@@ -17,11 +17,26 @@
                     <li><a href="dior.html">Dior</a></li>
                     <li><a href="ysl.html">YSL</a></li>
                     <li><a href="john-paul-gaultier.html">John Paul Gaultier</a></li>
-                    <li><a href="index.html">Home</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+            <li><a href="index-copy.html" id="homeLink">Home</a></li>
+        </ul>
+    </nav>
+</div>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const homeLink = document.getElementById('homeLink');
+        homeLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                window.location.href = 'index-copy.html';
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+    });
+</script>
 
     <section id="products" class="container">
         <h2>YSL Products</h2>

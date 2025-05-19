@@ -13,7 +13,7 @@
             <nav>
                 <ul>
                     <li><a href="calvin-klein.html">Calvin Klein Products</a></li>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index-copy.html">Home</a></li>
                 </ul>
             </nav>
         </div>
@@ -35,6 +35,12 @@
                 <input type="radio" id="ml200" name="ml" value="200" />
                 <label for="ml200">200 ml</label>
             </div>
+            <div class="price-quantity-container" style="margin-bottom: 15px;">
+                <span id="price" style="font-weight: 600; font-size: 1.2rem;">Price: $62</span>
+                <div class="quantity-selector" style="display: inline-flex; align-items: center; margin-left: 20px; position: relative;">
+                    <input type="number" id="quantityInput" value="1" min="1" max="50" style="width: 60px; font-size: 1rem; padding: 5px; border: 2px solid #4CAF50; border-radius: 5px; text-align: center; color: black;" />
+                </div>
+            </div>
             <button class="buy-now-btn" onclick="alert('Buy Now clicked for Calvin Klein Euphoria')">Buy Now</button>
         </div>
     </section>
@@ -45,5 +51,51 @@
             <p>&copy; 2025 Perfume Store. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const priceElement = document.getElementById('price');
+            const quantityInput = document.getElementById('quantityInput');
+            const mlOptions = document.getElementsByName('ml');
+
+            // Base prices for each ml option
+            const basePrices = {
+                '75': 62,
+                '125': 93,
+                '200': 124
+            };
+
+            function updatePrice() {
+                let selectedMl = '75';
+                for (const option of mlOptions) {
+                    if (option.checked) {
+                        selectedMl = option.value;
+                        break;
+                    }
+                }
+                let quantity = parseInt(quantityInput.value);
+                if (isNaN(quantity) || quantity < 1) {
+                    quantity = 1;
+                    quantityInput.value = quantity;
+                } else if (quantity > 50) {
+                    quantity = 50;
+                    quantityInput.value = quantity;
+                }
+                const totalPrice = basePrices[selectedMl] * quantity;
+                priceElement.textContent = 'Price: $' + totalPrice.toFixed(2);
+            }
+
+            // Event listeners for ml options
+            mlOptions.forEach(option => {
+                option.addEventListener('change', updatePrice);
+            });
+
+            // Event listener for quantity input
+            quantityInput.addEventListener('input', updatePrice);
+
+            // Initialize price on page load
+            updatePrice();
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up - Perfume Store</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .signup-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .signup-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #111;
+        }
+        .signup-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .signup-form input[type="text"],
+        .signup-form input[type="email"],
+        .signup-form input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .signup-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #000;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .signup-form button:hover {
+            background-color: #3c4fe0;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+            color: #333;
+        }
+        .login-link a {
+            color: #3c4fe0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Lumayo-layo ka sa'kin Perfume Store</h1>
+            <nav>
+                <ul>
+                    <li><a href="calvin-klein.html">Calvin Klein</a></li>
+                    <li><a href="versace.html">Versace</a></li>
+                    <li><a href="dior.html">Dior</a></li>
+                    <li><a href="ysl.html">YSL</a></li>
+                    <li><a href="john-paul-gaultier.html">John Paul Gaultier</a></li>
+                    <li><a href="index-copy.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="signup-container">
+        <h2>Sign Up</h2>
+        <form class="signup-form" action="#" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required />
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <p class="login-link">
+            Already have an account? <a href="login.html">Log In</a>
+        </p>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Contact us: support@ayokosamaasim.com | +1 234 567 8900</p>
+            <p>&copy; 2025 Perfume Store. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

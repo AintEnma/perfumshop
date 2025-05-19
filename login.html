@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - Perfume Store</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #111;
+        }
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #000;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .login-form button:hover {
+            background-color: #3c4fe0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Lumayo-layo ka sa'kin Perfume Store</h1>
+            <nav>
+                <ul>
+                    <li><a href="calvin-klein.html">Calvin Klein</a></li>
+                    <li><a href="versace.html">Versace</a></li>
+                    <li><a href="dior.html">Dior</a></li>
+                    <li><a href="ysl.html">YSL</a></li>
+                    <li><a href="john-paul-gaultier.html">John Paul Gaultier</a></li>
+                    <li><a href="index-copy.html">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="login-container">
+        <h2>Login</h2>
+        <form class="login-form" id="loginForm">
+            <label for="username">Username or Email</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username or email" required />
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+            <button type="submit">Log In</button>
+        </form>
+        <script>
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                // Save username to localStorage to simulate login
+                localStorage.setItem('loggedInUser', username);
+                // Redirect to index-copy.html
+                window.location.href = 'index-copy.html';
+            });
+        </script>
+        <p style="text-align:center; margin-top: 15px; color: #333;">
+            Don't have an account? <a href="signup.html" style="color: #3c4fe0; text-decoration: none;">Sign Up</a>
+        </p>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Contact us: support@ayokosamaasim.com | +1 234 567 8900</p>
+            <p>&copy; 2025 Perfume Store. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

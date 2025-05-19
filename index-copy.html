@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Perfume Store</title>
+    <title>Perfume Store - Copy</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,8 +17,7 @@
                     <li><a href="dior.html">Dior</a></li>
                     <li><a href="ysl.html">YSL</a></li>
                     <li><a href="john-paul-gaultier.html">John Paul Gaultier</a></li>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="index-copy.html">Home</a></li>
                 </ul>
             </nav>
         </div>
@@ -26,11 +25,68 @@
     <script>
         // On page load, check if user is logged in and update nav
         document.addEventListener('DOMContentLoaded', function() {
-            const userDisplay = document.getElementById('userDisplay');
+            const nav = document.querySelector('nav ul');
             const loggedInUser = localStorage.getItem('loggedInUser');
-            if (loggedInUser) {
-                userDisplay.textContent = 'Welcome, ' + loggedInUser;
+        if (loggedInUser) {
+            // Remove login link
+            const loginLink = nav.querySelector('a[href="login.html"]');
+            if (loginLink) {
+                loginLink.parentElement.remove();
             }
+            // Remove existing user display if any to avoid duplicates
+            const existingUserDisplay = nav.querySelector('li.user-display');
+            if (existingUserDisplay) {
+                existingUserDisplay.remove();
+            }
+            // Add user display with clickable username and logout button
+            const userDisplay = document.createElement('li');
+            userDisplay.classList.add('user-display');
+            userDisplay.style.color = 'white';
+            userDisplay.style.fontWeight = '600';
+            userDisplay.style.paddingLeft = '15px';
+
+            const userNameSpan = document.createElement('span');
+            userNameSpan.textContent = 'Welcome, ' + loggedInUser;
+            userNameSpan.style.cursor = 'pointer';
+            userNameSpan.title = 'Click to logout';
+
+            const logoutButton = document.createElement('button');
+            logoutButton.textContent = 'Logout';
+            logoutButton.style.marginLeft = '10px';
+            logoutButton.style.padding = '2px 6px';
+            logoutButton.style.fontSize = '0.9rem';
+            logoutButton.style.cursor = 'pointer';
+            logoutButton.style.border = 'none';
+            logoutButton.style.borderRadius = '4px';
+            logoutButton.style.backgroundColor = '#3c4fe0';
+            logoutButton.style.color = 'white';
+            logoutButton.style.display = 'none';
+
+            userNameSpan.addEventListener('click', () => {
+                logoutButton.style.display = logoutButton.style.display === 'none' ? 'inline-block' : 'none';
+            });
+
+            logoutButton.addEventListener('click', () => {
+                localStorage.removeItem('loggedInUser');
+                // After logout, reload nav to show login link again
+                window.location.reload();
+            });
+
+            userDisplay.appendChild(userNameSpan);
+            userDisplay.appendChild(logoutButton);
+            nav.appendChild(userDisplay);
+        } else {
+            // If not logged in, ensure login link is present
+            const loginLink = nav.querySelector('a[href="login.html"]');
+            if (!loginLink) {
+                const loginLi = document.createElement('li');
+                const loginAnchor = document.createElement('a');
+                loginAnchor.href = 'login.html';
+                loginAnchor.textContent = 'Login';
+                loginLi.appendChild(loginAnchor);
+                nav.appendChild(loginLi);
+            }
+        }
         });
     </script>
 
@@ -81,7 +137,6 @@
             </div>
         </div>
     </section>
-
 
     <footer>
         <div class="container">
