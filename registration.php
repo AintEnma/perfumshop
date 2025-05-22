@@ -3,7 +3,7 @@
 $host = "localhost"; // Change if your DB host is different
 $dbUsername = "root"; // Change to your DB username
 $dbPassword = ""; // Change to your DB password
-$dbName = "registration"; // Change to your database name
+$dbName = "tester"; // Changed to your database name
 
 // Create connection
 $conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+    $stmt = $conn->prepare("INSERT INTO registration (username, password) VALUES (username, password)");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
